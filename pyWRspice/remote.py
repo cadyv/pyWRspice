@@ -9,9 +9,13 @@
 
 import numpy as np
 import pandas as pd
-import os, tempfile, time
+import os
+import tempfile
+import time
 from datetime import datetime
-import uuid, itertools, logging
+import uuid
+import itertools
+import logging
 import multiprocessing as mp
 from paramiko.client import SSHClient
 
@@ -19,8 +23,8 @@ from .simulation import RawFile, backslash
 
 try:
     from adapt.refine import refine_scalar_field, refine_1D, well_scaled_delaunay_mesh
-except:
-    raise Exception("Could not import the 'adapt' package. Please install from github.com/bbn-q/adapt" )
+except ImportError:
+    raise ImportError("Could not import the 'adapt' package. Please install it with: pip install bbnadapt")
 
 logging.basicConfig(level=logging.WARNING)
 

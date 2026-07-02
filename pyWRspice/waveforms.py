@@ -104,7 +104,7 @@ class waveform_mod(object):
 def waveforms_to_file(wfms, filename = "waveforms.raw"):
     # All wafevorms are assumed to use the same time vector (sim time and step)
     wr_vars = [Variable("time", "", values=wfms[0].time)]
-    for idx, wfm in ennumerate(wfms):
+    for idx, wfm in enumerate(wfms):
         if wfm.name is None:
             name = f"wfm{idx:.0d}"
         else:

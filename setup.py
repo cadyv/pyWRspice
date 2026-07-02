@@ -1,4 +1,5 @@
 from setuptools import setup
+from pathlib import Path
 
 setup(
     name='pyWRspice',
@@ -10,11 +11,15 @@ setup(
     url='https://github.com/BBN-Q/pyWRspice',
     license='MIT License',
     description='Python wrapper for WRspice circuit simulation',
-    long_description=open('README.md').read(),
+    long_description=Path('README.md').read_text(encoding='utf-8'),
+    python_requires='>=3.10',
     install_requires=[
-        "numpy >= 1.12.1",
-        "scipy >= 0.17.1",
-        "pandas >= 1.3.5",
-        "paramiko >= 2.9.5"
+        "numpy >= 2.0",
+        "scipy >= 1.7.0",
+        "pandas >= 2.0",
+        "paramiko >= 2.9.5",
+        "networkx",
+        "matplotlib",
+        "bbnadapt",
     ],
 )

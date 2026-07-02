@@ -7,7 +7,8 @@
 import numpy as np
 import networkx as nx
 import pandas as pd
-import logging, os
+import logging
+import os
 from pyWRspice.simulation import Variable, write_rawfile
 
 # Get the style from NODE_STYLE.csv spreadsheet

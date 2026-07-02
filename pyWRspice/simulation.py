@@ -10,13 +10,19 @@
 
 import numpy as np
 import pandas as pd
-import os, tempfile, time, datetime
-import uuid, itertools, logging, subprocess
+import os
+import tempfile
+import time
+import datetime
+import uuid
+import itertools
+import logging
+import subprocess
 import multiprocessing as mp
 try:
     from adapt.refine import refine_scalar_field, refine_1D, well_scaled_delaunay_mesh
-except:
-    raise Exception("Could not import the 'adapt' package. Please install from github.com/bbn-q/adapt" )
+except ImportError:
+    raise ImportError("Could not import the 'adapt' package. Please install it with: pip install bbnadapt")
 
 logging.basicConfig(level=logging.WARNING)
 
@@ -592,7 +598,7 @@ class RawFile:
         else:
             raise NotImplementedError
 
-        input_data = np.fromstring(raw_data, count=number_of_columns*self.number_of_points, dtype='f8')
+        input_data = np.frombuffer(raw_data, count=number_of_columns*self.number_of_points, dtype='f8')
         input_data = input_data.reshape((self.number_of_points, number_of_columns))
         input_data = input_data.transpose()
         if self.flags == 'complex':

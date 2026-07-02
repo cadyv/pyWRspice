@@ -7,7 +7,10 @@ import numpy as np
 import pandas as pd
 from datetime import datetime
 from multiprocessing import Pool
-import os, sys, getopt, subprocess
+import os
+import sys
+import getopt
+import subprocess
 
 def run_command(cmd):
     """ Run a command """
